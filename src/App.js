@@ -1,19 +1,21 @@
 import { Route } from "react-router-dom";
-import { Button } from "./components/Button";
 import styled from "@emotion/styled";
 import { Header, Footer, Home, Feed, My } from "./pages";
-import { Skinselectbox } from "./components/Skinselectbox";
+import { Button, SelectBox } from "./components";
 
 function App() {
   return (
     <AppLayout>
       <Header />
+      <Test>
+        <h1>test</h1>
+        <Button />
+        <SelectBox />
+      </Test>
       <Route exact path="/" component={Home} />
       <Route path="/feed" component={Feed} />
       <Route path="/my" component={My} />
-      <Button />
       <Footer />
-      <Skinselectbox />
     </AppLayout>
   );
 }
@@ -27,4 +29,7 @@ const AppLayout = styled.div`
   height: 100vh;
   padding-top: 50px;
   background: skyblue;
+`;
+const Test = styled.div`
+  background: #fff;
 `;

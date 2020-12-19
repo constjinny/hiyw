@@ -1,18 +1,17 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import styled from "@emotion/styled";
 
-export function Skinselectbox(){
-
+export function SelectBox() {
   const [selectToggle, setSelectToggle] = useState(false);
-  const clickSelectBox = ()=>{
+  const clickSelectBox = () => {
     setSelectToggle(!selectToggle);
-  }
+  };
 
   return (
-    <SkinselectboxWrapper>
-      <SkinselectboxInner onClick={clickSelectBox}>
-        <SkinselectboxSelect selectToggle={selectToggle}>선택</SkinselectboxSelect>
-        <SkinselectboxOption selectToggle={selectToggle} onClick="clickOption">
+    <SelectBoxWrapper>
+      <SelectBoxInner onClick={clickSelectBox}>
+        <SelectBoxSelect selectToggle={selectToggle}>선택</SelectBoxSelect>
+        <SelectBoxOption selectToggle={selectToggle} onClick="clickOption">
           <li className="selected">선택</li>
           <li>폰트01</li>
           <li>폰트02</li>
@@ -24,17 +23,17 @@ export function Skinselectbox(){
           <li>폰트08</li>
           <li>폰트09</li>
           <li>폰트10</li>
-        </SkinselectboxOption>
-      </SkinselectboxInner>
-    </SkinselectboxWrapper>
+        </SelectBoxOption>
+      </SelectBoxInner>
+    </SelectBoxWrapper>
   );
-};
+}
 
-const SkinselectboxWrapper = styled.div``;
-const SkinselectboxInner = styled.div`
+const SelectBoxWrapper = styled.div``;
+const SelectBoxInner = styled.div`
   width: 200px;
 `;
-const SkinselectboxSelect = styled.div`
+const SelectBoxSelect = styled.div`
   position: relative;
   border: 2px solid #ccc;
   box-sizing: border-box;
@@ -45,19 +44,19 @@ const SkinselectboxSelect = styled.div`
   background-color: #fff;
   cursor: pointer;
   &:after {
-    content: ${(props)=>props.selectToggle?'"▲"':'"▼"'};
+    content: ${(props) => (props.selectToggle ? '"▲"' : '"▼"')};
     position: absolute;
     top: 0;
     right: 10px;
   }
 `;
-const SkinselectboxOption = styled.ul`
+const SelectBoxOption = styled.ul`
   width: 100%;
-  max-height: ${(props)=>props.selectToggle?'200px':'0px'};
+  max-height: ${(props) => (props.selectToggle ? "200px" : "0px")};
   overflow-y: auto;
   cursor: pointer;
   border: 2px solid #ccc;
-  opacity: ${(props)=>props.selectToggle?'1':'0'};
+  opacity: ${(props) => (props.selectToggle ? "1" : "0")};
   &::-webkit-scrollbar {
     width: 8px;
     background-color: #333;
