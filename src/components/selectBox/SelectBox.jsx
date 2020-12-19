@@ -1,28 +1,39 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
+import {FONT_FAMILY_LIST} from "../../type/fontType"
 
 export function SelectBox() {
   const [selectToggle, setSelectToggle] = useState(false);
-  const clickSelectBox = () => {
-    setSelectToggle(!selectToggle);
-  };
+  const [selectedOptionId, setSelectedOptionId] = useState("notoSansKR");
+
+  // useEffect(()=>{
+  //   console.log('selectedOptionId',selectedOptionId)
+  // },[selectedOptionId])
+
+  const clickSelectBox = () => setSelectToggle(!selectToggle);
+  const clickOption = (id)=>setSelectedOptionId(id);
+
+  const createSelectBoxFont = FONT_FAMILY_LIST.map((data, index)=>{
+    if(data.id === selectedOptionId){
+      return(
+        <SelectBoxOptionItem key={index} id={data.id} color={"red"}
+        font={data.css} onClick={()=>{clickOption(data.id)}}>{data.id}</SelectBoxOptionItem>
+      );
+    }else{
+      return(
+        <SelectBoxOptionItem key={index} id={data.id} color={"#000"} font={data.css} onClick={()=>{clickOption(data.id)}}>{data.id}</SelectBoxOptionItem>
+      );
+    }
+  }
+  );
 
   return (
     <SelectBoxWrapper>
       <SelectBoxInner onClick={clickSelectBox}>
-        <SelectBoxSelect selectToggle={selectToggle}>선택</SelectBoxSelect>
-        <SelectBoxOption selectToggle={selectToggle} onClick="clickOption">
-          <li className="selected">선택</li>
-          <li>폰트01</li>
-          <li>폰트02</li>
-          <li>폰트03</li>
-          <li>폰트04</li>
-          <li>폰트05</li>
-          <li>폰트06</li>
-          <li>폰트07</li>
-          <li>폰트08</li>
-          <li>폰트09</li>
-          <li>폰트10</li>
+        <SelectBoxSelect selectToggle={selectToggle}>
+      {selectedOptionId}</SelectBoxSelect>
+        <SelectBoxOption selectToggle={selectToggle}>
+          {createSelectBoxFont}
         </SelectBoxOption>
       </SelectBoxInner>
     </SelectBoxWrapper>
@@ -71,3 +82,7 @@ const SelectBoxOption = styled.ul`
     background-color: #ccc;
   }
 `;
+const SelectBoxOptionItem = styled.li`
+  color: ${(props)=>(props.color)};
+  ${(props)=>(props.font)};
+`
