@@ -1,5 +1,5 @@
 import * as React from "react";
 
 export function Page() {
-  return <div>kakakahahaha</div>;
+  return <div>안녕.</div>;
 }
