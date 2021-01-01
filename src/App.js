@@ -32,15 +32,17 @@ function App() {
 
   return (
     <AppLayout>
-      <div>
-        {weatherValue}
-        <img src={weatherIcon} alt={weatherValue} />
-      </div>
       <Header />
-      <Route exact path="/" component={Home} />
-      <Route path="/feed" component={Feed} />
-      <Route path="/my" component={My} />
-      <Route path="/login" component={Login} />
+      <div>
+        <div>
+          {weatherValue}
+          <img src={weatherIcon} alt={weatherValue} />
+        </div>
+        <Route exact path="/" component={Home} />
+        <Route path="/feed" component={Feed} />
+        <Route path="/my" component={My} />
+        <Route path="/login" component={Login} />
+      </div>
       <Footer />
     </AppLayout>
   );
@@ -55,4 +57,5 @@ const AppLayout = styled.div`
   height: 100vh;
   padding-top: 50px;
   background: skyblue;
+  box-sizing: border-box;
 `;

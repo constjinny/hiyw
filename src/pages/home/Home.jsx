@@ -3,13 +3,18 @@ import styled from "@emotion/styled";
 import { NOTE_HOME_LIST } from "../../type/noteType";
 
 export function Home() {
+  const placeHolder = [
+    "봄처럼 \n마음은 따뜻하게",
+    "여름처럼 \n사랑은 뜨겁게",
+    "가을처럼 \n베풂은 풍성하게",
+    "겨울처럼 \n미움은 얼어붙게",
+  ];
   const createHomeNoteList = NOTE_HOME_LIST.map((data, index) => {
     return (
       <HomeNoteItem key={index} id={data.id} bg={data.img}>
         <HomeNoteItemTextarea
           name="message"
-          placeholder="Enter here to see the text.
-          텍스트를 보려면 여기에 입력하십시오."
+          value={placeHolder[index]}
           font={data.css}
         />
       </HomeNoteItem>
@@ -18,7 +23,6 @@ export function Home() {
   return (
     <HomeWrapper>
       <HomeNote>
-        <h2>제목</h2>
         <HomeNoteList>{createHomeNoteList}</HomeNoteList>
       </HomeNote>
       <HomeIntroduction>
@@ -34,26 +38,30 @@ export function Home() {
   );
 }
 
-const HomeWrapper = styled.main``;
-const HomeNote = styled.section`
-  margin: 0 auto;
+const HomeWrapper = styled.main`
+  display: inline-flex;
   width: 100%;
-  max-width: 80rem;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+`;
+const HomeNote = styled.section`
+  width: 600px;
 `;
 const HomeNoteList = styled.ul`
-  display: flex;
+  width: 100%;
 `;
 const HomeNoteItem = styled.li`
+  float: left;
   overflow: hidden;
-  &:nth-of-type(2) {
-    margin: 0 1rem;
-  }
   position: relative;
-  width: 33%;
-  height: 25rem;
+  width: 280px;
+  height: 280px;
+  margin: 10px 10px;
   box-sizing: border-box;
   overflow: hidden;
   background-color: #000;
+  align-items: center;
   &::after {
     content: "";
     position: absolute;
@@ -63,27 +71,31 @@ const HomeNoteItem = styled.li`
     height: 100%;
     background-image: url(${(props) => props.bg});
     background-size: cover;
-    opacity: 0.5;
+    opacity: 0.4;
   }
 `;
 const HomeNoteItemTextarea = styled.textarea`
   position: absolute;
   width: 100%;
-  padding: 1rem;
-  height: 100%;
-  box-sizing: border-box;
+  height: auto;
+  padding: 30px;
+  text-align: center;
   border: none;
-  font-size: 1.5rem;
+  font-size: 18px;
+  box-sizing: border-box;
   background-color: rgba(255, 255, 255, 0);
   z-index: 1;
   color: #fff;
   ${(props) => props.font};
+  resize: none;
   &::placeholder {
     color: #fff;
+    height: 100%;
   }
+  align-items: center;
 `;
 const HomeIntroduction = styled.div`
-  text-align: center;
+  width: 600px;
   > h2 {
     font-size: 2rem;
     margin-top: 2rem;

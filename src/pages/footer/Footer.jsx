@@ -5,7 +5,7 @@ export function Footer() {
   return <FooterWrapper>footer</FooterWrapper>;
 }
 
-const FooterWrapper = styled.div`
+const FooterWrapper = styled.footer`
   position: fixed;
   bottom: 0;
   left: 0;
