@@ -1,0 +1,9 @@
+### users 정보 전체를 불러온다.
+### param : none
+### ex url : users/
+get http://localhost:3001/users/
+
+### contents 정보 전체를 불러온다.
+### param : none
+### ex url : contents/
+get http://localhost:3001/contents/

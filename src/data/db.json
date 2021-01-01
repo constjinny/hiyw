@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "seq": 1234567,
+      "id": "jinny",
+      "password": "1234",
+      "name": "윤유진",
+      "byname": "지니",
+      "phoneNum": "01012341234",
+      "email": "constjinny@gmail.com"
+    },
+    {
+      "seq": 7654321,
+      "id": "zeze",
+      "password": "1234",
+      "name": "윤유림",
+      "byname": "제제",
+      "phoneNum": "0105678-5678",
+      "email": "zeze@gmail.com"
+    }
+  ],
+  "contents": [
+    {
+      "id": "zeze",
+      "theme": "basic",
+      "title": "첫 글을 써봅니다...",
+      "content": "첫글의 내용입니당",
+      "createDate": "2020-12-30",
+      "changeDate": ""
+    },
+    {
+      "id": "jinny",
+      "theme": "basic",
+      "title": "두번째 글을 써봅니다...",
+      "content": "두번째 글의 내용입니당당구리 숭당당 ....",
+      "createDate": "2020-12-31",
+      "changeDate": "2021-01-01"
+    }
+  ]
+}

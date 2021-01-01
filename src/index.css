@@ -115,6 +115,6 @@ var {
   font-style: normal;
   font-weight: normal;
 }
-::selection {
+/* ::selection {
   background-color: #e6eeff;
-}
+} */

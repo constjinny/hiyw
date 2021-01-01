@@ -13,7 +13,7 @@ export function Header() {
         <Link to="/my">My</Link>
       </div>
       <LayoutRight>
-        <button type="button">login</button>
+        <Link to="/login">login</Link>
       </LayoutRight>
     </HeaderWrapper>
   );
