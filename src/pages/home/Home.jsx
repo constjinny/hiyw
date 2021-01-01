@@ -5,7 +5,7 @@ import { NOTE_HOME_LIST } from "../../type/noteType";
 export function Home() {
   const createHomeNoteList = NOTE_HOME_LIST.map((data, index) => {
     return (
-      <HomeNoteItem id={data.id} bg={data.img}>
+      <HomeNoteItem key={index} id={data.id} bg={data.img}>
         <HomeNoteItemTextarea
           name="message"
           placeholder="Enter here to see the text.
@@ -44,7 +44,8 @@ const HomeNoteList = styled.ul`
   display: flex;
 `;
 const HomeNoteItem = styled.li`
-  &:nth-child(2) {
+  overflow: hidden;
+  &:nth-of-type(2) {
     margin: 0 1rem;
   }
   position: relative;
