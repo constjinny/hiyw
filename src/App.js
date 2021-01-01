@@ -1,17 +1,17 @@
 import { Route } from "react-router-dom";
 import styled from "@emotion/styled";
 import { Header, Footer, Home, Feed, My } from "./pages";
-import { Button, SelectBox } from "./components";
+// import { Button, SelectBox } from "./components";
 
 function App() {
   return (
     <AppLayout>
       <Header />
-      <Test>
+      {/* <Test>
         <h1>test</h1>
         <Button />
         <SelectBox />
-      </Test>
+      </Test> */}
       <Route exact path="/" component={Home} />
       <Route path="/feed" component={Feed} />
       <Route path="/my" component={My} />
