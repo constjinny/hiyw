@@ -2,13 +2,12 @@ export const BUTTON_SIZE = {
   s: "Small",
   m: "Medium",
   l: "Large",
+  f: "Full",
 };
 
-export const BUTTON_THEME = {
-  SquareBg: "SquareBg",
-  RoundBg: "RoundBg",
-  SquareBorder: "SquareBorder",
-  RoundBorder: "RoundBorder",
+export const BUTTON_COLOR = {
+  white: "white",
+  gray: "gray",
 };
 
 export const NOTE_THEME = [

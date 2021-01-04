@@ -1,33 +1,40 @@
 import * as React from "react";
 import styled from "@emotion/styled";
 import { css } from "@emotion/core";
-import { BUTTON_SIZE, BUTTON_THEME } from "../../type/themeType";
+import { BUTTON_SIZE, BUTTON_COLOR } from "../../type/themeType";
 
 const buttonSizeStyle = {
   [BUTTON_SIZE.s]: css`
-    width: 100px;
-    height: 20px;
+    padding: 10px 20px;
   `,
   [BUTTON_SIZE.m]: css``,
   [BUTTON_SIZE.l]: css``,
+  [BUTTON_SIZE.f]: css`
+    width: 100%;
+    padding: 10px 20px;
+  `,
+};
+const buttonColorStyle = {
+  [BUTTON_COLOR.white]: css`
+    background: #ffffff;
+    box-shadow: 6px -6px 12px #d9d9d9, -6px 6px 12px #ffffff;
+  `,
+  [BUTTON_COLOR.gray]: css`
+    background: #d9d9d9;
+    box-shadow: 6px -6px 12px #b8b8b8, -6px 6px 12px #fafafa;
+    color: #fafafa;
+  `,
 };
 
-const buttonThemeStyle = {
-  [BUTTON_THEME.SquareBg]: css``,
-  [BUTTON_THEME.RoundBg]: css``,
-  [BUTTON_THEME.SquareBorder]: css``,
-  [BUTTON_THEME.RoundBorder]: css``,
-};
-
-export function Button({ onClick, size, theme, text }) {
+export function Button({ onClick, size, color, text }) {
   const sizeStyle = buttonSizeStyle[size];
-  const themeStyle = buttonThemeStyle[theme];
+  const colorStyle = buttonColorStyle[color];
   return (
     <ButtonComponent
       type="button"
       onClick={onClick}
       sizeStyle={sizeStyle}
-      themeStyle={themeStyle}
+      colorStyle={colorStyle}
     >
       {text}
     </ButtonComponent>
@@ -37,11 +44,14 @@ export function Button({ onClick, size, theme, text }) {
 Button.defaultProps = {
   onClick: () => console.log("click button"),
   size: BUTTON_SIZE.s,
-  theme: BUTTON_THEME.SquareBg,
+  color: BUTTON_COLOR.white,
   text: "버튼",
 };
 
 const ButtonComponent = styled.button`
   ${({ sizeStyle }) => sizeStyle}
-  ${({ themeStyle }) => themeStyle}
+  ${({ colorStyle }) => colorStyle}
+  font-size:18px;
+  border-radius: 50px;
+  box-sizing: border-box;
 `;

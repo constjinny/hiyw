@@ -26,7 +26,7 @@ export const getWeather = async (city) => {
 
   if (getData) {
     const weatherData = {
-      value: getData.weather[0].description,
+      value: getData.weather[0].main,
       icon: `${ICON_URL}${getData.weather[0].icon}@2x.png`,
     };
     return weatherData;

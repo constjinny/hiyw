@@ -27,6 +27,8 @@ const HeaderWrapper = styled.div`
   padding: 0 100px;
   text-align: center;
   box-sizing: border-box;
+  background: #ffffff;
+  box-shadow: -20px -20px 60px #d9d9d9, 20px 20px 60px #ffffff;
   a,
   button {
     display: inline-block;

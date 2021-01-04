@@ -19,6 +19,19 @@ server.get("/users", (req, res) => {
   res.send(resultData);
 });
 
+// user 전체 데이터
+server.post("/users", (req, res) => {
+  const resultData = db
+    .get("users")
+    .find({ id: req.body.id, password: req.body.pw })
+    .value();
+  if (resultData) {
+    res.send(true);
+  } else {
+    res.send(false);
+  }
+});
+
 // contents 전체 데이터
 server.get("/contents", (req, res) => {
   const resultData = db.get("contents").value();
