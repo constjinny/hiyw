@@ -4,10 +4,17 @@ import styled from "@emotion/styled";
 import { Header, Footer, Home, Feed, My, Login } from "../pages";
 
 import { getWeather } from "../api/weather.api";
+import { NOTE_THEME } from "../type/themeType";
+
+const createNoteColor = (weatherValue) => {
+  const color = NOTE_THEME.filter((data) => data.name === weatherValue);
+  return color.length ? color[0] : NOTE_THEME[0];
+};
 
 function Routes() {
   const [weatherValue, setWeatherValue] = React.useState("");
   const [weatherIcon, setWeatherIcon] = React.useState("");
+  const [weatherBgColor, setWeatherBgColor] = React.useState("");
 
   const weather = async () => {
     // wheather list :
@@ -20,6 +27,7 @@ function Routes() {
     // thunderstorm = 뇌우
     // snow = 눈
     // mist = 안개
+
     const getData = await getWeather("seoul");
 
     setWeatherValue(getData.value);
@@ -27,17 +35,24 @@ function Routes() {
   };
 
   React.useEffect(() => {
+    if (weatherValue) {
+      const noteColor = createNoteColor(weatherValue);
+      setWeatherBgColor(noteColor.mainColor);
+    }
+  }, [weatherValue]);
+
+  React.useEffect(() => {
     weather();
   }, []);
 
   return (
-    <AppLayout>
+    <AppLayout bgColor={weatherBgColor}>
       <Header />
       <AppInnerLayout>
-        {/* <div>
+        <div>
           {weatherValue}
           <img src={weatherIcon} alt={weatherValue} />
-        </div> */}
+        </div>
         <Route exact path="/" component={Home} />
         <Route path="/feed" component={Feed} />
         <Route path="/my" component={My} />
@@ -59,6 +74,7 @@ const AppLayout = styled.div`
   padding: 50px 0;
   box-sizing: border-box;
   align-items: center;
+  background-color: ${(props) => props.bgColor};
 `;
 
 const AppInnerLayout = styled.div`

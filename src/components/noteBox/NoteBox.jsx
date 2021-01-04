@@ -54,7 +54,7 @@ const NoteBoxStyle = styled.div`
   border-radius: 50px;
   background-color: ${({ mainColor }) => mainColor};
   box-shadow: ${({ Shadowcolor1, Shadowcolor2 }) =>
-    `20px 20px 60px ${Shadowcolor1}, -20px -20px 60px ${Shadowcolor2}`};
+    `6px -6px 12px  ${Shadowcolor1},   -6px 6px 12px ${Shadowcolor2}`};
 `;
 
 const TextAreaStyle = styled.textarea`
@@ -67,6 +67,7 @@ const TextAreaStyle = styled.textarea`
   box-sizing: border-box;
   resize: none;
   color: ${({ fontColor }) => fontColor};
+  background-color: transparent;
   &::placeholder {
     color: transparent;
     height: 100%;
