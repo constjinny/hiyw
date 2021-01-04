@@ -31,7 +31,6 @@ const HeaderWrapper = styled.div`
   button {
     display: inline-block;
     padding: 0 20px;
-    color: #fff;
     line-height: 50px;
   }
 `;
