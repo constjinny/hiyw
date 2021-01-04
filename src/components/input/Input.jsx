@@ -48,13 +48,14 @@ const LabelStyle = styled.label`
   padding: 5px;
   border-radius: 50px;
   background: #ffffff;
-  box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+  box-shadow: 6px -6px 12px #d9d9d9, -6px 6px 12px #ffffff;
 `;
 
 const LabelTitleStyle = styled.strong`
   display: block;
   width: 180px;
   font-size: 18px;
+  font-weight: normal;
   line-height: 46px;
 `;
 

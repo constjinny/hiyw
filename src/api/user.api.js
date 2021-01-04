@@ -19,4 +19,4 @@ const postLoginApi = (id, pw) => {
     });
 };
 
-export default { postLoginApi };
+export { postLoginApi };

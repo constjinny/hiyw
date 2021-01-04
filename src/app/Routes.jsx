@@ -71,7 +71,7 @@ const AppLayout = styled.div`
   position: relative;
   width: 100%;
   height: 100vh;
-  padding: 50px 0;
+  padding: 50px 0 60px;
   box-sizing: border-box;
   align-items: center;
   background-color: ${(props) => props.bgColor};
