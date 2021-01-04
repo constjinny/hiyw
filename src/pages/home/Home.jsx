@@ -1,27 +1,13 @@
 import * as React from "react";
 import styled from "@emotion/styled";
-import { NOTE_HOME_LIST } from "../../type/noteType";
+import { SAMPLE_NOTE_LIST } from "../../type/noteSampleType";
+import { NoteBox } from "../../components";
 
 export function Home() {
-  const [testText, setTestText] = React.useState("");
-  const placeHolder = [
-    "봄처럼 \n마음은 따뜻하게",
-    "여름처럼 \n사랑은 뜨겁게",
-    "가을처럼 \n베풂은 풍성하게",
-    "겨울처럼 \n미움은 얼어붙게",
-  ];
-
-  const onChangeTest = (value) => setTestText(value);
-
-  const createHomeNoteList = NOTE_HOME_LIST.map((data, index) => {
+  const createHomeNoteList = SAMPLE_NOTE_LIST.map((data, index) => {
     return (
-      <HomeNoteItem key={index} id={data.id} bg={data.img}>
-        <HomeNoteItemTextarea
-          name="message"
-          value={testText ? testText : placeHolder[index]}
-          onChange={(event) => onChangeTest(event.target.value)}
-          font={data.css}
-        />
+      <HomeNoteItem key={index}>
+        <NoteBox data={data} />
       </HomeNoteItem>
     );
   });
@@ -75,49 +61,6 @@ const HomeNoteList = styled.ul`
 `;
 const HomeNoteItem = styled.li`
   float: left;
-  overflow: hidden;
-  position: relative;
-  width: 280px;
-  height: 280px;
-  margin: 10px 10px;
-  box-sizing: border-box;
-  overflow: hidden;
-  background-color: #000;
-  align-items: center;
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url(${(props) => props.bg});
-    background-size: cover;
-    opacity: 0.4;
-  }
-`;
-const HomeNoteItemTextarea = styled.textarea`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  padding: 30px;
-  text-align: center;
-  border: none;
-  font-size: 18px;
-  box-sizing: border-box;
-  background-color: rgba(255, 255, 255, 0);
-  z-index: 1;
-  color: #fff;
-  ${(props) => props.font};
-  align-items: center;
-  resize: none;
-  &::placeholder {
-    color: #fff;
-    height: 100%;
-  }
-  &::-webkit-scrollbar {
-    display: none;
-  }
 `;
 const HomeIntroduction = styled.div`
   display: flex;

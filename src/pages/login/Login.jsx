@@ -1,6 +1,5 @@
 import * as React from "react";
 import styled from "@emotion/styled";
-import { FONT_FAMILY_LIST } from "../../type/fontType";
 import { Input, Button } from "../../components";
 // import USER_API from '../../api/user.api'
 
@@ -41,11 +40,9 @@ export function Login() {
 
 const LoginWrapper = styled.div`
   width: 500px;
-  margin: 50px auto 0;
+  margin: 0 auto;
   padding: 50px 50px;
   text-align: center;
-  border-radius: 30px;
-  background-color: #fff;
   box-sizing: border-box;
   > h2 {
     font-size: 24px;

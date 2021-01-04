@@ -68,10 +68,13 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-  background-color: #fff !important;
+  background-color: transparent !important;
   -webkit-text-fill-color: #212529 !important;
   transition-property: background-color, color;
   transition-delay: 9999s;
+}
+input:-internal-autofill-selected{
+  background-color: transparent !important;
 }
 button {
   border: 0 none;
