@@ -7,7 +7,7 @@ import { getWeather } from "../api/weather.api";
 import { NOTE_THEME } from "../type/themeType";
 
 const createNoteColor = (weatherValue) => {
-  const color = NOTE_THEME.filter((data) => data.name === weatherValue);
+  const color = NOTE_THEME.filter((data) => data.id === weatherValue);
   return color.length ? color[0] : NOTE_THEME[0];
 };
 
