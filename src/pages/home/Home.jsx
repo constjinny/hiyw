@@ -5,17 +5,11 @@ import { NoteBox } from "../../components";
 
 export function Home() {
   const createHomeNoteList = SAMPLE_NOTE_LIST.map((data, index) => {
-    return (
-      <HomeNoteItem key={index}>
-        <NoteBox data={data} />
-      </HomeNoteItem>
-    );
+    return <NoteBox key={index} data={data} />;
   });
   return (
     <HomeWrapper>
-      <HomeNote>
-        <HomeNoteList>{createHomeNoteList}</HomeNoteList>
-      </HomeNote>
+      <HomeNoteList>{createHomeNoteList}</HomeNoteList>
       <HomeIntroduction>
         <HomeTitleWrapper>
           <h1>
@@ -53,14 +47,13 @@ const HomeWrapper = styled.main`
   justify-content: center;
   align-items: center;
 `;
-const HomeNote = styled.section`
-  width: 600px;
-`;
-const HomeNoteList = styled.ul`
-  width: 100%;
-`;
-const HomeNoteItem = styled.li`
-  float: left;
+const HomeNoteList = styled.section`
+  display: flex;
+  flex-wrap: wrap;
+  width: 640px;
+  > div {
+    margin: 20px;
+  }
 `;
 const HomeIntroduction = styled.div`
   display: flex;
@@ -68,7 +61,6 @@ const HomeIntroduction = styled.div`
   width: 400px;
   padding-left: 30px;
   align-items: top;
-
   > p {
     margin-top: 20px;
     font-size: 20px;
