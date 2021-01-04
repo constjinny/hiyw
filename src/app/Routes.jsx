@@ -14,30 +14,19 @@ const createNoteColor = (weatherValue) => {
 function Routes() {
   const [weatherValue, setWeatherValue] = React.useState("");
   const [weatherIcon, setWeatherIcon] = React.useState("");
-  const [weatherBgColor, setWeatherBgColor] = React.useState("");
+  const [weatherColor, setWeatherColor] = React.useState("");
 
   const weather = async () => {
-    // wheather list :
-    // clear sky = 맑음 = 약간의 구름
-    // few clouds = 약간의 구름
-    // scattered clouds = 흩어져있는 구름
-    // broken clouds = 부서진 구름
-    // shower rain = 약간의 비
-    // rain = 비
-    // thunderstorm = 뇌우
-    // snow = 눈
-    // mist = 안개
-
     const getData = await getWeather("seoul");
 
-    setWeatherValue(getData.value);
+    setWeatherValue(getData.id);
     setWeatherIcon(getData.icon);
   };
 
   React.useEffect(() => {
     if (weatherValue) {
       const noteColor = createNoteColor(weatherValue);
-      setWeatherBgColor(noteColor.mainColor);
+      setWeatherColor(noteColor);
     }
   }, [weatherValue]);
 
@@ -46,8 +35,14 @@ function Routes() {
   }, []);
 
   return (
-    <AppLayout bgColor={weatherBgColor}>
-      <Header />
+    <AppLayout
+      bgColor={weatherColor.mainColor}
+      fontColor={weatherColor.fontColor}
+    >
+      <Header
+        bgColor={weatherColor.mainColor}
+        fontColor={weatherColor.fontColor}
+      />
       <AppInnerLayout>
         <div>
           {weatherValue}
@@ -58,7 +53,10 @@ function Routes() {
         <Route path="/my" component={My} />
         <Route path="/login" component={Login} />
       </AppInnerLayout>
-      <Footer />
+      <Footer
+        bgColor={weatherColor.mainColor}
+        fontColor={weatherColor.fontColor}
+      />
     </AppLayout>
   );
 }
@@ -75,6 +73,7 @@ const AppLayout = styled.div`
   box-sizing: border-box;
   align-items: center;
   background-color: ${(props) => props.bgColor};
+  color: ${(props) => props.fontColor};
 `;
 
 const AppInnerLayout = styled.div`

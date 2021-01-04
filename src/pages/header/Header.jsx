@@ -2,9 +2,9 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import styled from "@emotion/styled";
 
-export function Header() {
+export function Header({ fontColor }) {
   return (
-    <HeaderWrapper>
+    <HeaderWrapper fontColor={fontColor}>
       <LayoutLeft>
         <Link to="/">Home</Link>
       </LayoutLeft>
@@ -23,17 +23,17 @@ const HeaderWrapper = styled.div`
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 1;
   width: 100%;
   padding: 0 100px;
   text-align: center;
   box-sizing: border-box;
-  background: #ffffff;
-  box-shadow: -20px -20px 60px #d9d9d9, 20px 20px 60px #ffffff;
   a,
   button {
     display: inline-block;
     padding: 0 20px;
     line-height: 50px;
+    color: ${({ fontColor }) => fontColor};
   }
 `;
 const LayoutLeft = styled.div`
