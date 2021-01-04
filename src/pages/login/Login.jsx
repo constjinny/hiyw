@@ -25,6 +25,7 @@ export function Login() {
           id="inputId"
           title="ID"
           placeholder="ID를 입력해주세요."
+          maxLength="16"
           getValue={changeUserId}
         />
         <Input
@@ -32,6 +33,7 @@ export function Login() {
           id="inputPw"
           title="PASSWORD"
           placeholder="비빌번호를 입력해주세요."
+          maxLength="16"
           getValue={changeUserPw}
         />
       </LoginInnerWrapper>

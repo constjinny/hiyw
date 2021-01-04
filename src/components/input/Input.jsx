@@ -1,7 +1,15 @@
 import * as React from "react";
 import styled from "@emotion/styled";
 
-export function Input({ label, type, id, title, placeholder, getValue }) {
+export function Input({
+  label,
+  type,
+  id,
+  title,
+  placeholder,
+  getValue,
+  maxLength,
+}) {
   const [value, setValue] = React.useState("");
 
   const onChangeValue = (value) => {
@@ -17,6 +25,7 @@ export function Input({ label, type, id, title, placeholder, getValue }) {
           type={type}
           id={id}
           value={value}
+          maxLength={maxLength}
           placeholder={placeholder}
           onChange={(event) => onChangeValue(event.target.value)}
         />
@@ -30,6 +39,7 @@ Input.defaultProps = {
   type: "text",
   id: "id",
   placeholder: "placeholder",
+  maxLength: "maxLength",
   getValue: (value) => console.log("getValue"),
 };
 
