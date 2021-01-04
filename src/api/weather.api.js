@@ -25,10 +25,43 @@ export const getWeather = async (city) => {
     });
 
   if (getData) {
-    const weatherData = {
-      value: getData.weather[0].main,
-      icon: `${ICON_URL}${getData.weather[0].icon}@2x.png`,
-    };
-    return weatherData;
+    const getId = getData.weather[0].id;
+    if (200 <= getId <= 299) {
+      // 뇌우
+      return {
+        id: "thunderstorm",
+        icon: "11",
+      };
+    } else if (300 <= getId <= 399 || 500 <= getId <= 599) {
+      // 비
+      return {
+        id: "rain",
+        icon: "10",
+      };
+    } else if (600 <= getId <= 699) {
+      // 눈
+      return {
+        id: "snow",
+        icon: "13",
+      };
+    } else if (700 <= getId <= 799) {
+      // 안개
+      return {
+        id: "mist",
+        icon: "50",
+      };
+    } else if (getId === 800) {
+      // 맑음
+      return {
+        id: "clear",
+        icon: "01",
+      };
+    } else if (801 <= getId <= 899) {
+      // 구름
+      return {
+        id: "clouds",
+        icon: "02",
+      };
+    }
   }
 };
